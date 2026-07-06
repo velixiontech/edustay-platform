@@ -7,45 +7,45 @@ import logo from "@/assets/logo.png";
 const roles = [
   {
     title: "Administrator",
-    description: "Manage properties, approve applications, allocate students, and generate contracts.",
-    icon: <Shield className="h-8 w-8" />,
+    description:
+      "Manage properties, approve applications, allocate students and generate contracts.",
+    icon: <Shield className="h-8 w-8 text-white" />,
     href: "/admin",
-    color: "bg-primary/10 text-primary",
   },
   {
     title: "Student",
-    description: "Request application access, fill in your application, and view your accommodation contract.",
-    icon: <GraduationCap className="h-8 w-8" />,
+    description:
+      "Request application access, complete your application and view your accommodation contract.",
+    icon: <GraduationCap className="h-8 w-8 text-white" />,
     href: "/student",
-    color: "bg-info/10 text-info",
   },
   {
     title: "Property Owner",
-    description: "Track your properties, view occupancy rates, and monitor your accommodation portfolio.",
-    icon: <Home className="h-8 w-8" />,
+    description:
+      "Track your properties, occupancy rates and accommodation portfolio.",
+    icon: <Home className="h-8 w-8 text-white" />,
     href: "/owner",
-    color: "bg-accent/10 text-accent-foreground",
   },
   {
     title: "Finance",
-    description: "Track student payments, manage expenses, and send payment reminders.",
-    icon: <DollarSign className="h-8 w-8" />,
+    description:
+      "Track payments, manage expenses and send payment reminders.",
+    icon: <DollarSign className="h-8 w-8 text-white" />,
     href: "/finance",
-    color: "bg-success/10 text-success",
   },
   {
     title: "Maintenance",
-    description: "Receive and manage maintenance requests, upload invoices, and track repairs.",
-    icon: <Wrench className="h-8 w-8" />,
+    description:
+      "Receive maintenance requests, upload invoices and track repairs.",
+    icon: <Wrench className="h-8 w-8 text-white" />,
     href: "/maintenance-team",
-    color: "bg-warning/10 text-warning",
   },
   {
     title: "Surety",
-    description: "Review the student's application, sign the lease as surety, and stay informed about payments.",
-    icon: <UserCheck className="h-8 w-8" />,
+    description:
+      "Review the student's application, sign the lease and monitor payments.",
+    icon: <UserCheck className="h-8 w-8 text-white" />,
     href: "/surety",
-    color: "bg-secondary/30 text-secondary-foreground",
   },
 ];
 
@@ -54,39 +54,59 @@ const Index = () => {
     <div className="min-h-screen bg-background flex flex-col">
       {/* Hero */}
       <header className="relative overflow-hidden">
-       <div className="absolute inset-0 bg-white" />
+        <div className="absolute inset-0 bg-white" />
+
         <div className="relative z-10 max-w-5xl mx-auto px-6 py-20 text-center">
           <div className="flex items-center justify-center gap-3 mb-6">
-            <img src={logo} alt="EduStay Accommodation" className="h-24 w-24 object-contain" />
-            <h1 className="text-4xl md:text-5xl font-serif bg-gradient-to-r from-[#3E45D2] via-[#8B289B] to-[#EC0B42] bg-clip-text text-transparent">
-              EduStay Accommodation
+            <img
+              src={logo}
+              alt="EduStay Portal"
+              className="h-24 w-24 object-contain"
+            />
+
+            <h1 className="text-4xl md:text-5xl font-serif bg-gradient-to-r from-[#FE0031] via-[#6B0B81] to-[#0226C7] bg-clip-text text-transparent">
+              EduStay Portal
             </h1>
           </div>
+
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Smart living for bright futures. From application to contract — all in one place.
+            Sign in to your EduStay account. Your dashboard will open automatically based on your assigned role.
           </p>
+
           <div className="mt-8">
-            <Link to="/properties">
-              <Button size="lg" className="bg-gradient-to-r from-[#3E45D2] via-[#8B289B] to-[#EC0B42] text-white hover:opacity-90">
-                <Building2 className="h-5 w-5 mr-2" /> Browse Properties
+            <Link to="/login">
+              <Button
+                size="lg"
+                className="bg-gradient-to-r from-[#FE0031] via-[#6B0B81] to-[#0226C7] text-white hover:opacity-90 transition-all duration-300"
+              >
+                <Building2 className="h-5 w-5 mr-2" />
+                Login to EduStay Portal
               </Button>
             </Link>
           </div>
         </div>
       </header>
 
-      {/* Role Selection */}
+      {/* Platform Modules */}
       <main className="flex-1 max-w-5xl mx-auto px-6 -mt-8 relative z-20 w-full pb-16">
         <div className="grid md:grid-cols-3 lg:grid-cols-6 gap-6">
           {roles.map((role) => (
             <Link key={role.href} to={role.href} className="group">
-              <Card className="h-full shadow-elevated hover:-translate-y-1 transition-all duration-300 border-border/50">
+              <Card className="h-full rounded-3xl border border-gray-200 bg-white shadow-md hover:shadow-2xl hover:-translate-y-2 transition-all duration-300">
                 <CardContent className="p-8 flex flex-col items-center text-center">
-                  <div className={`h-16 w-16 rounded-2xl ${role.color} flex items-center justify-center mb-5 group-hover:scale-110 transition-transform`}>
+                  <div
+                    className="h-16 w-16 rounded-2xl bg-gradient-to-br from-[#FE0031] via-[#6B0B81] to-[#0226C7] flex items-center justify-center mb-5 shadow-lg group-hover:scale-110 transition-all duration-300"
+                  >
                     {role.icon}
                   </div>
-                  <h2 className="text-xl font-serif mb-2 text-card-foreground">{role.title}</h2>
-                  <p className="text-sm text-muted-foreground leading-relaxed">{role.description}</p>
+
+                  <h2 className="text-xl font-serif mb-2 text-card-foreground">
+                    {role.title}
+                  </h2>
+
+                  <p className="text-sm text-muted-foreground leading-relaxed">
+                    {role.description}
+                  </p>
                 </CardContent>
               </Card>
             </Link>
